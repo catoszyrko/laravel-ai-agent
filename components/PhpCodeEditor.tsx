@@ -1,4 +1,12 @@
-export default function PhpCodeEditor() {
+interface PhpCodeEditorProps {
+    value: string;
+    onChange: (value: string) => void;
+  }
+  
+  export default function PhpCodeEditor({
+    value,
+    onChange,
+  }: PhpCodeEditorProps) {
     return (
       <div>
         <label
@@ -10,6 +18,8 @@ export default function PhpCodeEditor() {
   
         <textarea
           id="php-code"
+          value={value}
+          onChange={(event) => onChange(event.target.value)}
           placeholder="Paste your PHP or Laravel code here..."
           className="h-96 w-full rounded-lg border border-slate-300 bg-white p-4 font-mono text-sm shadow-sm focus:border-blue-500 focus:outline-none"
         />
